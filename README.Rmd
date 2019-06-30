@@ -1,0 +1,85 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# nacleanr
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of nacleanr is to **Removes Variables with Missing Values** above user defined limit from a dataset .
+
+## Installation
+
+You can install the released version of nacleanr from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("nacleanr")
+```
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("anandjage/nacleanr")
+```
+## Example ```perecnt_na()```
+
+This is a basic example which shows how to find percentage of missing values in the form of NA in each variable:
+
+```{r percent_na}
+library(nacleanr)
+## basic example code
+sample_data <- read_data(path = system.file("extdata", 'nadata.csv', package = "nacleanr"))
+percent_na(sample_data)
+```
+
+
+
+## Example ```invalidcols(dataset,threshold)```
+This is a basic example which shows variables that contain missing values NA in the form more than user defined threshold
+
+```{r invalidcols}
+library(nacleanr)
+nacleanr::invalidcols(data = sample_data,threshold = 50)
+```
+
+## Example ```validcols(dataset,threshold)```
+This is a basic example which shows variables that contain missing values NA in the form within the user defined threshold.
+
+```{r validcols}
+nacleanr::validcols(data = sample_data,threshold = 50)
+```
+
+## Example ```select_cols(dataset,threshold)```
+
+This is a basic example which returns dataset after removing variables that contain missing values above the user defined threshold.
+
+```{r}
+nacleanr::select_cols(data = sample_data,threshold = 50)
+```
+
+
+## Example ```age_cal(dataset,variable)```
+
+Calculates age by subtracting a year vector variable from current system year. Creates a new vector in dataset.
+
+```{r}
+building <- read_data(path = system.file("extdata", 'agedata.csv', package = "nacleanr"))
+age <- age_cal(data = building, variable = "YearBuilt")
+names(age)
+building$age <- age$YearBuilt
+head(building)
+
+```
+

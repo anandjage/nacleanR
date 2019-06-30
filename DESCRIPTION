@@ -1,13 +1,14 @@
 Package: nacleanr
 Type: Package
-Title: Removes Variables with missing values above user defined limit from a dataset .
+Title: Removes Variables with missing values above user defined limit from a dataset.
 Version: 0.1.0
 Author: Anand Jage
 Maintainer: Anand <anandjage@gmail.com>
 Description: Removes variables from dataset with missing values above user defined limit.
     There are some other functionalities. 
-License: Free to Use
+License: Free to Use comes with absolute no warranty.
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/anandjage/nacleanr
 BugReports: https://github.com/anandjage/nacleanr/issues
+RoxygenNote: 6.1.1
