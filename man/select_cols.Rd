@@ -11,6 +11,9 @@ select_cols(data, threshold)
 
 \item{threshold}{threshold percentage of NAs or missing values}
 }
+\value{
+output dataset after operation
+}
 \description{
 Valid Variable Selector
 }

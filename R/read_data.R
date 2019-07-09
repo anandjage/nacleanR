@@ -1,5 +1,7 @@
 
-#' Read CSV File and convert missing values in form of spaces, empty value, character NA and na into logical NAs
+#' Read CSV
+#'
+#' Import CSV File and convert missing values in form of spaces, empty value, character NA and na into logical NAs
 #'
 #' @param path "path/filename.csv"
 #'

@@ -21,5 +21,6 @@ Age Calculator
 csv = system.file("extdata", 'agedata.csv', package = "nacleanr")
 agedata <- read_data(csv)
 agedata$ageTodaySinceBuilt <- age_cal(agedata,"YearBuilt")
+agedata$ageTodaySinceRenovated <- age_cal(agedata, "YearRenovated")
 head(agedata)
 }

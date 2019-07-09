@@ -16,11 +16,17 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 <!-- badges: end -->
+## DESCRIPTION  
+The goal of nacleanr is to provide functions that aide in data cleansing. It comprises of functions to   
+* **Probe the percentage of missing values** within the variables  
+* **Find valid & invalid variables** from point of view of percentage of missing data  
+* **Remove Variables with Missing Values** above user defined limit from a dataset   
+* **Calculate age variable in years** from an existing calendar year variable in dataset by subtracting year variable from System Date 
 
-The goal of nacleanr is to **Removes Variables with Missing Values** above user defined limit from a dataset .
 
 ## Installation
-
+*Update:Package is currently not available on CRAN*  
+*Please use GitHub to install development version*  
 You can install the released version of nacleanr from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
@@ -40,14 +46,15 @@ This is a basic example which shows how to find percentage of missing values in 
 ```{r percent_na}
 library(nacleanr)
 ## basic example code
-sample_data <- read_data(path = system.file("extdata", 'nadata.csv', package = "nacleanr"))
+csv <- system.file("extdata", 'nadata.csv', package = "nacleanr")
+sample_data <- read_data(path = csv)
 percent_na(sample_data)
 ```
 
 
 
 ## Example ```invalidcols(dataset,threshold)```
-This is a basic example which shows variables that contain missing values NA in the form more than user defined threshold
+This is a basic example which shows variables that contain missing values NA above user defined threshold
 
 ```{r invalidcols}
 library(nacleanr)
@@ -66,7 +73,8 @@ nacleanr::validcols(data = sample_data,threshold = 50)
 This is a basic example which returns dataset after removing variables that contain missing values above the user defined threshold.
 
 ```{r}
-nacleanr::select_cols(data = sample_data,threshold = 50)
+new_data <- nacleanr::select_cols(data = sample_data,threshold = 50)
+new_data
 ```
 
 
@@ -75,11 +83,10 @@ nacleanr::select_cols(data = sample_data,threshold = 50)
 Calculates age by subtracting a year vector variable from current system year. Creates a new vector in dataset.
 
 ```{r}
-building <- read_data(path = system.file("extdata", 'agedata.csv', package = "nacleanr"))
-age <- age_cal(data = building, variable = "YearBuilt")
-names(age)
-building$age <- age$YearBuilt
-head(building)
-
+csv = system.file("extdata", 'agedata.csv', package = "nacleanr")
+agedata <- read_data(csv)
+agedata$ageTodaySinceBuilt <- age_cal(agedata,"YearBuilt")
+agedata$ageTodaySinceRenovated <- age_cal(agedata, "YearRenovated")
+head(agedata)
 ```
 

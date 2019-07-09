@@ -7,11 +7,22 @@
 
 <!-- badges: end -->
 
-The goal of nacleanr is to **Removes Variables with Missing Values**
-above user defined limit from a dataset .
+## DESCRIPTION
+
+The goal of nacleanr is to provide functions that aide in data
+cleansing. It comprises of functions to  
+\* **Probe the percentage of missing values** within the variables  
+\* **Find valid & invalid variables** from point of view of percentage
+of missing data  
+\* **Remove Variables with Missing Values** above user defined limit
+from a dataset  
+\* **Calculate age variable in years** from an existing calendar year
+variable in dataset by subtracting year variable from System Date
 
 ## Installation
 
+*Update:Package is currently not available on CRAN*  
+*Please use GitHub to install development version*  
 You can install the released version of nacleanr from
 [CRAN](https://CRAN.R-project.org) with:
 
@@ -34,7 +45,8 @@ values in the form of NA in each variable:
 ``` r
 library(nacleanr)
 ## basic example code
-sample_data <- read_data(path = system.file("extdata", 'nadata.csv', package = "nacleanr"))
+csv <- system.file("extdata", 'nadata.csv', package = "nacleanr")
+sample_data <- read_data(path = csv)
 percent_na(sample_data)
 #> Length  Width Height Weight 
 #>     20     40     60     20
@@ -43,7 +55,7 @@ percent_na(sample_data)
 ## Example `invalidcols(dataset,threshold)`
 
 This is a basic example which shows variables that contain missing
-values NA in the form more than user defined threshold
+values NA above user defined threshold
 
 ``` r
 library(nacleanr)
@@ -67,7 +79,8 @@ This is a basic example which returns dataset after removing variables
 that contain missing values above the user defined threshold.
 
 ``` r
-nacleanr::select_cols(data = sample_data,threshold = 50)
+new_data <- nacleanr::select_cols(data = sample_data,threshold = 50)
+new_data
 #>    Length Width Weight
 #> 1       5    NA     17
 #> 2       9    NA     19
@@ -84,21 +97,19 @@ nacleanr::select_cols(data = sample_data,threshold = 50)
 ## Example `age_cal(dataset,variable)`
 
 Calculates age by subtracting a year vector variable from current system
-year. Creates a new vector in
-dataset.
+year. Creates a new vector in dataset.
 
 ``` r
-building <- read_data(path = system.file("extdata", 'agedata.csv', package = "nacleanr"))
-age <- age_cal(data = building, variable = "YearBuilt")
-names(age)
-#> [1] "YearBuilt"
-building$age <- age$YearBuilt
-head(building)
-#>   YearBuilt YearRenovated age
-#> 1      1991          2011  28
-#> 2      1993          2003  26
-#> 3      1991          2008  28
-#> 4      1978          2000  41
-#> 5      1983          2007  36
-#> 6      1987          2005  32
+csv = system.file("extdata", 'agedata.csv', package = "nacleanr")
+agedata <- read_data(csv)
+agedata$ageTodaySinceBuilt <- age_cal(agedata,"YearBuilt")
+agedata$ageTodaySinceRenovated <- age_cal(agedata, "YearRenovated")
+head(agedata)
+#>   YearBuilt YearRenovated ageTodaySinceBuilt ageTodaySinceRenovated
+#> 1      1991          2011                 28                      8
+#> 2      1993          2003                 26                     16
+#> 3      1991          2008                 28                     11
+#> 4      1978          2000                 41                     19
+#> 5      1983          2007                 36                     12
+#> 6      1987          2005                 32                     14
 ```

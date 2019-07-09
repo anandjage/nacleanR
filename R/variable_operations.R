@@ -59,13 +59,18 @@ invalidcols <- function(data,threshold) {
 #' @param data name of dataset
 #' @param threshold threshold percentage of NAs or missing values
 #'
-#' @return
+#' @return output dataset after operation
 #' @export
 #'
 #' @examples
-select_cols <- function(data,threshold) {
-  data[validcols(data,threshold)]
-}
+# select_cols <- function(data,threshold) {
+#   data[validcols(data,threshold)]
+# }
+  select_cols <- function(data,threshold) {
+    output <- data[validcols(data,threshold)]
+    return(output)
+  }
+
 
 # age_cal ---------------------------------------------------------------
 
@@ -81,6 +86,7 @@ select_cols <- function(data,threshold) {
 #' csv = system.file("extdata", 'agedata.csv', package = "nacleanr")
 #' agedata <- read_data(csv)
 #' agedata$ageTodaySinceBuilt <- age_cal(agedata,"YearBuilt")
+#' agedata$ageTodaySinceRenovated <- age_cal(agedata, "YearRenovated")
 #' head(agedata)
 age_cal <- function(data,variable){
   as.character(variable)
