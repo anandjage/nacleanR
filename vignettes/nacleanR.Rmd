@@ -1,18 +1,13 @@
 ---
-output: github_document
+title: "Vignette for nacleanR"
+author: "Anand Jage"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette for nacleanR}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
 ---
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
-)
-```
-# nacleanr
 
 <!-- badges: start -->
 <!-- badges: end -->

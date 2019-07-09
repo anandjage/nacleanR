@@ -9,7 +9,7 @@
 
 ## DESCRIPTION
 
-The goal of nacleanr is to provide functions that aide in data
+The goal of nacleanR is to provide functions that aide in data
 cleansing. It comprises of functions to  
 \* **Probe the percentage of missing values** within the variables  
 \* **Find valid & invalid variables** from point of view of percentage
@@ -27,14 +27,14 @@ You can install the released version of nacleanr from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("nacleanr")
+install.packages("nacleanR")
 ```
 
 And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("anandjage/nacleanr")
+devtools::install_github("anandjage/nacleanR")
 ```
 
 ## Example `perecnt_na()`
@@ -43,9 +43,9 @@ This is a basic example which shows how to find percentage of missing
 values in the form of NA in each variable:
 
 ``` r
-library(nacleanr)
+library(nacleanR)
 ## basic example code
-csv <- system.file("extdata", 'nadata.csv', package = "nacleanr")
+csv <- system.file("extdata", 'nadata.csv', package = "nacleanR")
 sample_data <- read_data(path = csv)
 percent_na(sample_data)
 #> Length  Width Height Weight 
@@ -58,8 +58,7 @@ This is a basic example which shows variables that contain missing
 values NA above user defined threshold
 
 ``` r
-library(nacleanr)
-nacleanr::invalidcols(data = sample_data,threshold = 50)
+nacleanR::invalidcols(data = sample_data,threshold = 50)
 #> [1] "Height"
 ```
 
@@ -69,7 +68,7 @@ This is a basic example which shows variables that contain missing
 values NA in the form within the user defined threshold.
 
 ``` r
-nacleanr::validcols(data = sample_data,threshold = 50)
+nacleanR::validcols(data = sample_data,threshold = 50)
 #> [1] "Length" "Width"  "Weight"
 ```
 
@@ -79,7 +78,7 @@ This is a basic example which returns dataset after removing variables
 that contain missing values above the user defined threshold.
 
 ``` r
-new_data <- nacleanr::select_cols(data = sample_data,threshold = 50)
+new_data <- nacleanR::select_cols(data = sample_data,threshold = 50)
 new_data
 #>    Length Width Weight
 #> 1       5    NA     17
@@ -100,7 +99,7 @@ Calculates age by subtracting a year vector variable from current system
 year. Creates a new vector in dataset.
 
 ``` r
-csv = system.file("extdata", 'agedata.csv', package = "nacleanr")
+csv = system.file("extdata", 'agedata.csv', package = "nacleanR")
 agedata <- read_data(csv)
 agedata$ageTodaySinceBuilt <- age_cal(agedata,"YearBuilt")
 agedata$ageTodaySinceRenovated <- age_cal(agedata, "YearRenovated")

@@ -12,3 +12,5 @@ LazyData: true
 URL: https://github.com/anandjage/nacleanr
 BugReports: https://github.com/anandjage/nacleanr/issues
 RoxygenNote: 6.1.1
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
