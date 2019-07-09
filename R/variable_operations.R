@@ -78,10 +78,16 @@ select_cols <- function(data,threshold) {
 #' @export
 #'
 #' @examples
+# age_cal <- function(data,variable){
+#   as.character(variable)
+#   age <- as.integer(format(Sys.Date(), "%Y")) - data[variable]
+#   return(age[variable])
+# }
 age_cal <- function(data,variable){
   as.character(variable)
   age <- as.integer(format(Sys.Date(), "%Y")) - data[variable]
-  return(age[variable])
+  return(age[[variable]])
+
 }
 
 

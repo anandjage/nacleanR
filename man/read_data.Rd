@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_data.R
 \name{read_data}
 \alias{read_data}
-\title{Read CSV File and convert missing values into logical NAs}
+\title{Read CSV File and convert missing values in form of spaces, empty value, character NA and na into logical NAs}
 \usage{
 read_data(path)
 }
@@ -13,9 +13,9 @@ read_data(path)
 Second sample data
 }
 \description{
-Read CSV File and convert missing values into logical NAs
+Read CSV File and convert missing values in form of spaces, empty value, character NA and na into logical NAs
 }
 \examples{
-csv = system.file("extdata", 'data2csv', package = "nacleanr")
+csv = system.file("extdata", 'nadata.csv', package = "nacleanr")
 read_data(csv)
 }

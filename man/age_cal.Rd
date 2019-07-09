@@ -13,6 +13,8 @@ age_cal(data, variable)
 
 \item{variable}{variable name whose age is to be calculated}
 
+\item{agevariable}{new variable column which is the calculated age}
+
 \item{data}{name of dataset}
 
 \item{variable}{variable name whose age is to be calculated}
