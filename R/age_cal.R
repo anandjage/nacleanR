@@ -10,12 +10,12 @@
 #'
 #' @examples
 
-age_cal <- function(data,variable,agevariable){
-  as.character(variable)
-  as.character(agevariable)
-  age <- as.integer(format(Sys.Date(), "%Y")) - data[variable]
-  return(data$ageVariable <- (age[variable]))
-}
+# age_cal <- function(data,variable,agevariable){
+#   as.character(variable)
+#   as.character(agevariable)
+#   age <- as.integer(format(Sys.Date(), "%Y")) - data[variable]
+#   return(data$ageVariable <- (age[variable]))
+# }
 
 # age_cal <- function(data,variable){
 #   as.character(variable)

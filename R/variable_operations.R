@@ -78,17 +78,22 @@ select_cols <- function(data,threshold) {
 #' @export
 #'
 #' @examples
+#' csv = system.file("extdata", 'agedata.csv', package = "nacleanr")
+#' agedata <- read_data(csv)
+#' agedata$ageTodaySinceBuilt <- age_cal(agedata,"YearBuilt")
+#' head(agedata)
+age_cal <- function(data,variable){
+  as.character(variable)
+  age <- as.integer(format(Sys.Date(), "%Y")) - data[variable]
+  return(age[[variable]])
+}
+
 # age_cal <- function(data,variable){
 #   as.character(variable)
 #   age <- as.integer(format(Sys.Date(), "%Y")) - data[variable]
 #   return(age[variable])
 # }
-age_cal <- function(data,variable){
-  as.character(variable)
-  age <- as.integer(format(Sys.Date(), "%Y")) - data[variable]
-  return(age[[variable]])
 
-}
 
 
 
