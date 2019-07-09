@@ -7,9 +7,10 @@
 #'
 #' @return Second sample data
 #' @export
+#' @importFrom utils read.csv
 #'
 #' @examples
-#' csv = system.file("extdata", 'nadata.csv', package = "nacleanr")
+#' csv = system.file("extdata", 'nadata.csv', package = "nacleanR")
 #' read_data(csv)
 read_data <- function(path){
   read.csv(path, header=T, sep=",", na.strings = c(" ","","NA","na"))

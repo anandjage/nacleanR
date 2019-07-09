@@ -14,11 +14,10 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' csv = system.file("extdata", 'nadata.csv', package = "nacleanr")
+#' csv = system.file("extdata", 'nadata.csv', package = "nacleanR")
 #' data <- read_data(csv)
 #' percent_na(data)
-#' }
+#'
 #'
 percent_na <- function(data){
   round(apply(data,2, function(y) {
@@ -37,7 +36,7 @@ percent_na <- function(data){
 #' @export
 #'
 #' @examples
-#' csv = system.file("extdata", 'nadata.csv', package = "nacleanr")
+#' csv = system.file("extdata", 'nadata.csv', package = "nacleanR")
 #' data <- read_data(csv)
 #' validcols(data,50)
 validcols <- function(data,threshold) {
@@ -55,7 +54,7 @@ validcols <- function(data,threshold) {
 #' @export
 #'
 #' @examples
-#' csv = system.file("extdata", 'nadata.csv', package = "nacleanr")
+#' csv = system.file("extdata", 'nadata.csv', package = "nacleanR")
 #' data <- read_data(csv)
 #' invalidcols(data,50)
 invalidcols <- function(data,threshold) {
@@ -73,7 +72,7 @@ invalidcols <- function(data,threshold) {
 #' @export
 #'
 #' @examples
-#' csv = system.file("extdata", 'nadata.csv', package = "nacleanr")
+#' csv = system.file("extdata", 'nadata.csv', package = "nacleanR")
 #' data <- read_data(csv)
 #' select_cols(data,50)
   select_cols <- function(data,threshold) {
@@ -99,7 +98,7 @@ invalidcols <- function(data,threshold) {
 #' @export
 #'
 #' @examples
-#' csv = system.file("extdata", 'agedata.csv', package = "nacleanr")
+#' csv = system.file("extdata", 'agedata.csv', package = "nacleanR")
 #' agedata <- read_data(csv)
 #' agedata$ageTodaySinceBuilt <- age_cal(agedata,"YearBuilt")
 #' agedata$ageTodaySinceRenovated <- age_cal(agedata, "YearRenovated")

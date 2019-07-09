@@ -16,6 +16,6 @@ Second sample data
 Import CSV File and convert missing values in form of spaces, empty value, character NA and na into logical NAs
 }
 \examples{
-csv = system.file("extdata", 'nadata.csv', package = "nacleanr")
+csv = system.file("extdata", 'nadata.csv', package = "nacleanR")
 read_data(csv)
 }

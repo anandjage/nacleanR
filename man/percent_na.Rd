@@ -16,10 +16,9 @@ a list of variable names with percentage of missing values
 Probes the percentage of missing values within the variables
 }
 \examples{
-\dontrun{
-csv = system.file("extdata", 'nadata.csv', package = "nacleanr")
+csv = system.file("extdata", 'nadata.csv', package = "nacleanR")
 data <- read_data(csv)
 percent_na(data)
-}
+
 
 }

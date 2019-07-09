@@ -18,7 +18,7 @@ names of variables that fall within user defined criteria for missing value
 Return Valid variable names
 }
 \examples{
-csv = system.file("extdata", 'nadata.csv', package = "nacleanr")
+csv = system.file("extdata", 'nadata.csv', package = "nacleanR")
 data <- read_data(csv)
 validcols(data,50)
 }

@@ -18,7 +18,7 @@ a dataframe with age as a vector
 Calculate age variable in years from an existing calendar year variable in dataset by subtracting year variable from System Date
 }
 \examples{
-csv = system.file("extdata", 'agedata.csv', package = "nacleanr")
+csv = system.file("extdata", 'agedata.csv', package = "nacleanR")
 agedata <- read_data(csv)
 agedata$ageTodaySinceBuilt <- age_cal(agedata,"YearBuilt")
 agedata$ageTodaySinceRenovated <- age_cal(agedata, "YearRenovated")

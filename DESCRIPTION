@@ -1,6 +1,6 @@
 Package: nacleanR
 Type: Package
-Title: Easy Functions that aide in data cleansing
+Title: Easy to use functions that aide in data cleansing
 Version: 0.1.0
 Author: Anand Jage
 Maintainer: Anand <anandjage@gmail.com>
@@ -12,5 +12,6 @@ LazyData: true
 URL: https://github.com/anandjage/nacleanr
 BugReports: https://github.com/anandjage/nacleanr/issues
 RoxygenNote: 6.1.1
+Imports: utils
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
