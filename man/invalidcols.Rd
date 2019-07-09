@@ -14,3 +14,8 @@ invalidcols(data, threshold)
 \description{
 Return Invalid Variable Names
 }
+\examples{
+csv = system.file("extdata", 'nadata.csv', package = "nacleanr")
+data <- read_data(csv)
+invalidcols(data,50)
+}

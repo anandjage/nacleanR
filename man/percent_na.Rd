@@ -13,11 +13,13 @@ percent_na(data)
 a list of variable names with percentage of missing values
 }
 \description{
-Calculate Percentage of NA in each variable in data
+Probes the percentage of missing values within the variables
 }
 \examples{
 \dontrun{
-percent_na()
+csv = system.file("extdata", 'nadata.csv', package = "nacleanr")
+data <- read_data(csv)
+percent_na(data)
 }
 
 }

@@ -6,6 +6,8 @@
 
 #' Calculate Percentage of NA in each variable in data
 #'
+#'Probes the percentage of missing values within the variables
+#'
 #' @param data name of dataset
 #'
 #' @return a list of variable names with percentage of missing values
@@ -13,7 +15,9 @@
 #'
 #' @examples
 #' \dontrun{
-#' percent_na()
+#' csv = system.file("extdata", 'nadata.csv', package = "nacleanr")
+#' data <- read_data(csv)
+#' percent_na(data)
 #' }
 #'
 percent_na <- function(data){
@@ -29,10 +33,13 @@ percent_na <- function(data){
 #' @param data name of dataset
 #' @param threshold threshold percentage of NAs or missing values
 #'
-#' @return
+#' @return names of variables that fall within user defined criteria for missing value
 #' @export
 #'
 #' @examples
+#' csv = system.file("extdata", 'nadata.csv', package = "nacleanr")
+#' data <- read_data(csv)
+#' validcols(data,50)
 validcols <- function(data,threshold) {
   names(data[percent_na(data)<threshold])
 }
@@ -48,6 +55,9 @@ validcols <- function(data,threshold) {
 #' @export
 #'
 #' @examples
+#' csv = system.file("extdata", 'nadata.csv', package = "nacleanr")
+#' data <- read_data(csv)
+#' invalidcols(data,50)
 invalidcols <- function(data,threshold) {
   names(data[percent_na(data)>threshold])
 }
@@ -63,19 +73,25 @@ invalidcols <- function(data,threshold) {
 #' @export
 #'
 #' @examples
-# select_cols <- function(data,threshold) {
-#   data[validcols(data,threshold)]
-# }
+#' csv = system.file("extdata", 'nadata.csv', package = "nacleanr")
+#' data <- read_data(csv)
+#' select_cols(data,50)
   select_cols <- function(data,threshold) {
     output <- data[validcols(data,threshold)]
     return(output)
   }
+
+  # select_cols <- function(data,threshold) {
+  #   data[validcols(data,threshold)]
+  # }
+
 
 
 # age_cal ---------------------------------------------------------------
 
 #' Age Calculator
 #'
+#' Calculate age variable in years from an existing calendar year variable in dataset by subtracting year variable from System Date
 #' @param data name of dataset
 #' @param variable variable name whose age is to be calculated
 #'

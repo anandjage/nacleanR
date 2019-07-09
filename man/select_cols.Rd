@@ -17,3 +17,8 @@ output dataset after operation
 \description{
 Valid Variable Selector
 }
+\examples{
+csv = system.file("extdata", 'nadata.csv', package = "nacleanr")
+data <- read_data(csv)
+select_cols(data,50)
+}

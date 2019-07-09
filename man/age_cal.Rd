@@ -15,7 +15,7 @@ age_cal(data, variable)
 a dataframe with age as a vector
 }
 \description{
-Age Calculator
+Calculate age variable in years from an existing calendar year variable in dataset by subtracting year variable from System Date
 }
 \examples{
 csv = system.file("extdata", 'agedata.csv', package = "nacleanr")

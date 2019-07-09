@@ -11,6 +11,14 @@ validcols(data, threshold)
 
 \item{threshold}{threshold percentage of NAs or missing values}
 }
+\value{
+names of variables that fall within user defined criteria for missing value
+}
 \description{
 Return Valid variable names
+}
+\examples{
+csv = system.file("extdata", 'nadata.csv', package = "nacleanr")
+data <- read_data(csv)
+validcols(data,50)
 }
