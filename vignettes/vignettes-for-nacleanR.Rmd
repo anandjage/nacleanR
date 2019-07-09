@@ -1,16 +1,23 @@
 ---
-title: "Vignette for nacleanR"
-author: "Anand Jage"
-date: "`r Sys.Date()`"
+title: "vignettes-for-nacleanR"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette for nacleanR}
+  %\VignetteIndexEntry{vignettes-for-nacleanR}
   %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
 ---
 
-<!-- badges: start -->
-<!-- badges: end -->
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(nacleanR)
+```
+
 
 ## DESCRIPTION  
 The goal of nacleanR is to provide functions that aide in data cleansing. It comprises of functions to   
@@ -41,7 +48,6 @@ This is a basic example which shows how to find percentage of missing values in 
 
 ```{r percent_na}
 library(nacleanR)
-## basic example code
 csv <- system.file("extdata", 'nadata.csv', package = "nacleanR")
 sample_data <- read_data(path = csv)
 percent_na(sample_data)
@@ -53,14 +59,16 @@ percent_na(sample_data)
 This is a basic example which shows variables that contain missing values NA above user defined threshold
 
 ```{r invalidcols}
-nacleanR::invalidcols(data = sample_data,threshold = 50)
+library(nacleanR)
+invalidcols(data = sample_data,threshold = 50)
 ```
 
 ## Example ```validcols(dataset,threshold)```
 This is a basic example which shows variables that contain missing values NA in the form within the user defined threshold.
 
 ```{r validcols}
-nacleanR::validcols(data = sample_data,threshold = 50)
+library(nacleanR)
+validcols(data = sample_data,threshold = 50)
 ```
 
 ## Example ```select_cols(dataset,threshold)```
@@ -68,7 +76,8 @@ nacleanR::validcols(data = sample_data,threshold = 50)
 This is a basic example which returns dataset after removing variables that contain missing values above the user defined threshold.
 
 ```{r}
-new_data <- nacleanR::select_cols(data = sample_data,threshold = 50)
+library(nacleanR)
+new_data <- select_cols(data = sample_data,threshold = 50)
 new_data
 ```
 
@@ -78,6 +87,7 @@ new_data
 Calculates age by subtracting a year vector variable from current system year. Creates a new vector in dataset.
 
 ```{r}
+library(nacleanR)
 csv = system.file("extdata", 'agedata.csv', package = "nacleanR")
 agedata <- read_data(csv)
 agedata$ageTodaySinceBuilt <- age_cal(agedata,"YearBuilt")
