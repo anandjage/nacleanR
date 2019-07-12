@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# nacleanr
+# nacleanR
 
 <!-- badges: start -->
 
@@ -37,7 +37,7 @@ And the development version from [GitHub](https://github.com/) with:
 devtools::install_github("anandjage/nacleanR")
 ```
 
-## Example `perecnt_na()`
+## Example `perecnt_na(dataset)`
 
 This is a basic example which shows how to find percentage of missing
 values in the form of NA in each variable:

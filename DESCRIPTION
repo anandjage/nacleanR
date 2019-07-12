@@ -3,7 +3,7 @@ Type: Package
 Title: Easy to use functions that aide in data cleansing
 Version: 0.1.0
 Author: Anand Jage
-Maintainer: Anand <anandjage@gmail.com>
+Maintainer: Anand Jage<anandjage@gmail.com>
 Description: Removes variables from dataset with missing values above user defined limit.
     There are some other functionalities. 
 License: GPL-3
